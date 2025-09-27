@@ -109,7 +109,6 @@ namespace CalculatriceLaporte
             affichage = rescase(nb1, nb2, op);
             TB_Display.Text = affichage;
             op = ' ';
-            point = ' ';
         }
         public double addition(double nb1, double nb2)
         {
