@@ -28,6 +28,7 @@ namespace CalculatriceLaporte
         double res = 0;
         string affichage = " ";
         bool newEntry = true;
+        char point = ' ';
         private void BTN_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
@@ -61,6 +62,7 @@ namespace CalculatriceLaporte
             TB_Display.Text += " " + btnContent;
             op = btnContent;
             TB_Display.Text = null;
+            point = ' ';
         }
         private void BTN_CARRE8RACINE_Click(object sender, RoutedEventArgs e)
         {
@@ -80,11 +82,20 @@ namespace CalculatriceLaporte
             else
                 TB_Display.Text = "√" + nb1;
             op = btnContent;
+            point = ' ';
         }
         private void BTN_PO_Click(object sender, RoutedEventArgs e)
         //Chiffre à virguyle
         {
-            TB_Display.Text += ",";
+            if (point == ',')
+            {
+                TB_Display.Text = TB_Display.Text;
+            }
+            else
+            {
+                TB_Display.Text += ",";
+                point = ',';
+            }
         }
         private void BTN_E_Click(object sender, RoutedEventArgs e)
         {
@@ -98,6 +109,7 @@ namespace CalculatriceLaporte
             affichage = rescase(nb1, nb2, op);
             TB_Display.Text = affichage;
             op = ' ';
+            point = ' ';
         }
         public double addition(double nb1, double nb2)
         {
@@ -153,6 +165,8 @@ namespace CalculatriceLaporte
         private void BTN_CE_Click(object sender, RoutedEventArgs e)
         {
             TB_Display.Text = null;
+            point = ' ';
+            op = ' ';
         }
     }
 }
